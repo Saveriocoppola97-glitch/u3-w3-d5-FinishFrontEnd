@@ -1,0 +1,7 @@
+.form-control::placeholder {
+  color: #adb5bd !important; /* Bootstrap secondary */
+  opacity: 1;
+}
+.sidebar-item:hover {
+  background-color: #39393b;
+}
