@@ -32,7 +32,7 @@ const GridExample = function () {
           </Button>
         </Col>
       </Row>
-      <Row xs={1} lg={3} className="g-3 my-3">
+      <Row xs={1} lg={3} className=" my-3">
         <Col>
           <Button
             style={{ fontSize: "0.7rem" }}
@@ -61,7 +61,7 @@ const GridExample = function () {
           </Button>
         </Col>
       </Row>
-      <Row xs={1} lg={3} className="g-3 my-3">
+      <Row xs={1} lg={3} className=" my-3">
         <Col>
           <Button
             style={{ fontSize: "0.7rem" }}
