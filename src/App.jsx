@@ -8,7 +8,6 @@ import SideBarTop from "./components/SideBarTop";
 import MainHero from "./components/MainHero";
 import NewSeason from "./components/NewSeason";
 import New from "./components/New";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,9 +22,6 @@ function App() {
           <NewSeason />
           <New />
           <Other />
-          <footer style={{ backgroundColor: "#323232" }}>
-            <Footer />
-          </footer>
         </Col>
       </Row>
     </Container>

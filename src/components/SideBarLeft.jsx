@@ -1,45 +1,89 @@
-import { Nav, Form } from "react-bootstrap";
+import { useState } from "react";
+import { Nav, Form, Navbar, Offcanvas, Button } from "react-bootstrap";
 import logoMusic from "../assets/logos/music.svg";
 
-const SideBarLeft = function () {
+const SideBarLeft = () => {
+  const [show, setShow] = useState(false);
+
   return (
-    <div className="mt-2">
-      <img style={{ width: "80px" }} src={logoMusic} alt="logo-Apple" />
-      <div className="d-flex align-items-center border border-secondary rounded p-1 px-2 my-4">
-        <i className="bi bi-search text-danger me-2"></i>
-        <Form.Control
-          type="search"
-          placeholder="Cerca"
-          className="bg-dark border-0 shadow-none p-0 text-white small"
-        />
+    <>
+      <Navbar className="d-md-none bg-dark px-2 py-2 d-flex justify-content-between align-items-center">
+        <Button
+          variant="link"
+          className="text-light fs-3 p-0"
+          onClick={() => setShow(true)}
+        >
+          <i className="bi bi-list"></i>
+        </Button>
+        <img style={{ width: "50px" }} src={logoMusic} alt="logo" />
+        <Button size="sm" className="bg-danger fw-bold">
+          Accedi
+        </Button>
+      </Navbar>
+
+      <div className="d-none d-md-block mt-2">
+        <img style={{ width: "80px" }} src={logoMusic} alt="logo" />
+
+        <div className="d-flex align-items-center border border-secondary rounded px-2 my-4">
+          <i className="bi bi-search text-danger me-2"></i>
+          <Form.Control
+            type="search"
+            placeholder="Cerca"
+            className="bg-dark border-0 shadow-none text-white small"
+          />
+        </div>
+        <Nav className="flex-column">
+          <Nav.Link className="text-light">
+            <i className="bi bi-house-door text-danger me-2"></i>
+            Home
+          </Nav.Link>
+          <Nav.Link className="text-light">
+            <i className="bi bi-grid text-danger me-2"></i>
+            Novità
+          </Nav.Link>
+          <Nav.Link className="text-light">
+            <i className="bi bi-broadcast text-danger me-2"></i>
+            Radio
+          </Nav.Link>
+        </Nav>
       </div>
-
-      <Nav className="flex-column">
-        <Nav.Link
-          href="#"
-          className="sidebar-item d-flex align-items-center gap-2 text-light py-1 px-2 rounded"
-        >
-          <i className="bi bi-house-door text-danger"></i>
-          Home
-        </Nav.Link>
-
-        <Nav.Link
-          href="#"
-          className="sidebar-item d-flex align-items-center gap-2 text-light py-1 px-2 rounded"
-        >
-          <i className="bi bi-grid text-danger"></i>
-          Novità
-        </Nav.Link>
-
-        <Nav.Link
-          href="#"
-          className="sidebar-item d-flex align-items-center gap-2 text-light py-1 px-2 rounded"
-        >
-          <i className="bi bi-broadcast text-danger"></i>
-          Radio
-        </Nav.Link>
-      </Nav>
-    </div>
+      <Offcanvas
+        show={show}
+        onHide={() => setShow(false)}
+        className="bg-dark text-light"
+      >
+        <Offcanvas.Header closeButton closeVariant="white">
+          <Offcanvas.Title>
+            <img style={{ width: "60px" }} src={logoMusic} alt="logo" />
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            <Nav.Link
+              onClick={() => setShow(false)}
+              className="text-light py-2"
+            >
+              <i className="bi bi-house-door text-danger me-2"></i>
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => setShow(false)}
+              className="text-light py-2"
+            >
+              <i className="bi bi-grid text-danger me-2"></i>
+              Novità
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => setShow(false)}
+              className="text-light py-2"
+            >
+              <i className="bi bi-broadcast text-danger me-2"></i>
+              Radio
+            </Nav.Link>
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
   );
 };
 

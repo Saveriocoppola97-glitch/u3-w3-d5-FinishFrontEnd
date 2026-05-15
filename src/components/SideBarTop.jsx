@@ -26,7 +26,7 @@ const MainContent = function () {
         <Form.Range className="w-50" />
       </Col>
       <Col md={2}>
-        <Button className="bg-danger m-1 fw-bold">
+        <Button className="bg-danger m-1 fw-bold d-none d-md-inline-flex">
           <span className="me-1">
             <i className="bi bi-person"></i>
           </span>
