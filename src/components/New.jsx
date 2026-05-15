@@ -1,31 +1,70 @@
-import { Row, Col, Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
 const New = function () {
-  
-    return (
-        <>
-    <div className="d-flex align-items-center mb-1 mt-3">
-      <p
-        style={{ fontSize: "0.7rem" }}
-        className="m-0 fw-semibold lh-1 d-flex align-items-center"
-      >
-        Nuovi episodi radio
-      </p>
-      <i className="bi bi-chevron-right"></i>
-    </div>
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-  </>
-}
+  const [tracks, setTracks] = useState([]);
+
+  const getApi = function () {
+    fetch(
+      "https://striveschool-api.herokuapp.com/api/deezer/search?q=Michael%20Jackson",
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Errore nella risposta del server");
+        }
+      })
+      .then((data) => {
+        setTracks(data.data);
+      })
+      .catch((err) => {
+        console.log("Errore:", err);
+      });
+  };
+
+  useEffect(() => {
+    getApi();
+  }, []);
+
+  return (
+    <>
+      <div className="d-flex align-items-center gap-1 mb-1 mt-3">
+        <p style={{ fontSize: "0.7rem" }} className="m-0 fw-semibold lh-1">
+          Nuovi episodi radio
+        </p>
+        <i className="bi bi-chevron-right"></i>
+      </div>
+      <Row className="g-3">
+        {tracks.slice(0, 8).map((song) => (
+          <Col xs={6} lg={3} key={song.id}>
+            <Card className="border-0 mb-1">
+              <Card.Img src={song.album.cover_medium} />
+            </Card>
+            <div className="d-flex justify-content-between align-items-start">
+              <span style={{ fontSize: "0.6rem" }}>{song.title}</span>
+              <span
+                style={{ fontSize: "0.5rem" }}
+                className="bg-secondary text-black px-2 py-1"
+              >
+                E
+              </span>
+            </div>
+            <span
+              className="d-block"
+              style={{
+                fontSize: "0.6rem",
+                lineHeight: "1",
+              }}
+            >
+              {song.artist.name}
+            </span>
+          </Col>
+        ))}
+      </Row>
+    </>
+  );
+};
 
 export default New;

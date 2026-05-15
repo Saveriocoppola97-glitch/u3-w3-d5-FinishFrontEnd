@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
-
+import Other from "./components/Other";
 import SideBarLeft from "./components/SideBarLeft";
 import SideBarTop from "./components/SideBarTop";
 import MainHero from "./components/MainHero";
@@ -22,6 +22,7 @@ function App() {
           <MainHero />
           <NewSeason />
           <New />
+          <Other />
         </Col>
       </Row>
     </Container>
