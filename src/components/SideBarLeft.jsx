@@ -7,7 +7,7 @@ const SideBarLeft = () => {
 
   return (
     <>
-      <Navbar className="d-md-none bg-dark px-2 py-2 d-flex justify-content-between align-items-center">
+      <Navbar className="d-md-none bg-dark d-flex justify-content-between align-items-center">
         <Button
           variant="link"
           className="text-light fs-3 p-0"
@@ -20,28 +20,27 @@ const SideBarLeft = () => {
           Accedi
         </Button>
       </Navbar>
-
       <div className="d-none d-md-block mt-2">
         <img style={{ width: "80px" }} src={logoMusic} alt="logo" />
 
-        <div className="d-flex align-items-center border border-secondary rounded px-2 my-4">
-          <i className="bi bi-search text-danger me-2"></i>
+        <div className="d-flex align-items-center border border-secondary rounded my-4">
+          <i className="bi bi-search text-danger mx-2"></i>
           <Form.Control
             type="search"
             placeholder="Cerca"
             className="bg-dark border-0 shadow-none text-white small"
           />
         </div>
-        <Nav className="flex-column">
-          <Nav.Link className="text-light">
+        <Nav className="flex-column gap-1">
+          <Nav.Link className="text-light p-0 mx-2">
             <i className="bi bi-house-door text-danger me-2"></i>
             Home
           </Nav.Link>
-          <Nav.Link className="text-light">
+          <Nav.Link className="text-light p-0 mx-2">
             <i className="bi bi-grid text-danger me-2"></i>
             Novità
           </Nav.Link>
-          <Nav.Link className="text-light">
+          <Nav.Link className="text-light p-0 mx-2">
             <i className="bi bi-broadcast text-danger me-2"></i>
             Radio
           </Nav.Link>

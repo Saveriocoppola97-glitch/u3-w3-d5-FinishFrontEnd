@@ -13,10 +13,10 @@ function App() {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} md={2}>
+        <Col xs={12} md={3}>
           <SideBarLeft />
         </Col>
-        <Col xs={12} md={10} style={{ backgroundColor: "#1f1f1f" }}>
+        <Col xs={12} md={9} style={{ backgroundColor: "#1f1f1f" }}>
           <SideBarTop />
           <MainHero />
           <NewSeason />
