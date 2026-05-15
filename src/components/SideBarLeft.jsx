@@ -3,8 +3,8 @@ import logoMusic from "../assets/logos/music.svg";
 
 const SideBarLeft = function () {
   return (
-    <div>
-      <img style={{ width: "100px" }} src={logoMusic} alt="logo-Apple" />
+    <div className="mt-2">
+      <img style={{ width: "80px" }} src={logoMusic} alt="logo-Apple" />
       <div className="d-flex align-items-center border border-secondary rounded p-1 px-2 my-4">
         <i className="bi bi-search text-danger me-2"></i>
         <Form.Control
