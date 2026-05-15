@@ -17,7 +17,7 @@ const NewSeason = function () {
         </p>
         <i className="bi bi-chevron-right"></i>
       </div>
-      <Row className="g-3">
+      <Row xs={2} md={5} className="g-3">
         <Col>
           <img className="img-fluid rounded-2 mb-1" src={img3} alt="img1" />
           <div className="d-flex justify-content-between align-item-center">
