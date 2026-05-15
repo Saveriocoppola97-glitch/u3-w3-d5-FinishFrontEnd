@@ -38,7 +38,7 @@ const New = function () {
       </div>
       <Row className="g-3">
         {tracks.slice(0, 8).map((song) => (
-          <Col xs={6} lg={3} key={song.id}>
+          <Col xs={6} md={4} lg={3} key={song.id}>
             <Card className="border-0 mb-1">
               <Card.Img src={song.album.cover_medium} />
             </Card>
